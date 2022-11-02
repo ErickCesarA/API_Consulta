@@ -1,21 +1,22 @@
-﻿using System.Security.Cryptography.X509Certificates;
+﻿using API_consulta.Enums.Medicine_Enums;
+using System.Security.Cryptography.X509Certificates;
 
 namespace API_consulta.Class
 {
     public class MedicineModel
     {
         protected string MedicineName { get; set; }
-        protected string MedicineID { get; set; }
+        protected int MedicineId { get; set; }
         protected int MedicineMg { get; set; }
         protected int MedicinePillNumber { get; set; }
-        protected int MedicineAgeUse { get; set; }
-        protected string MedicineSymptomsCure { get; set; }
-        protected string MedicineSeverity { get; set; }
+        protected MedicineAgeUse MedicineAgeUse { get; set; }
+        protected string MedicineSymptomsCure { get; set; } //Some Symptoms of a Symptoms List
+        protected MedicineSeverity MedicineSeverity { get; set; }
 
-        public MedicineModel (string MedicineName, string MedicineID, int MedicineMg, int MedicinePillNumber, int MedicineAgeUse, string MedicineSymptomsCure, string MedicineSeverity)
+        public MedicineModel (string MedicineName, int MedicineId, int MedicineMg, int MedicinePillNumber, MedicineAgeUse MedicineAgeUse, string MedicineSymptomsCure, MedicineSeverity MedicineSeverity)
         {
             this.MedicineName = MedicineName;
-            this.MedicineID = MedicineID;
+            this.MedicineId = MedicineId;
             this.MedicineMg = MedicineMg;
             this.MedicinePillNumber = MedicinePillNumber;
             this.MedicineAgeUse = MedicineAgeUse;
@@ -26,9 +27,9 @@ namespace API_consulta.Class
         {
             return MedicineName;
         }
-        public string GetMedicineID()
+        public int GetMedicineId()
         {
-            return MedicineID;
+            return MedicineId;
         }
         public int GetMedicineMg()
         {
@@ -38,7 +39,7 @@ namespace API_consulta.Class
         {
             return MedicinePillNumber;
         }
-        public int GetMedicineAgeUse()
+        public MedicineAgeUse GetMedicineAgeUse()
         {
             return MedicineAgeUse;
         }
@@ -46,7 +47,7 @@ namespace API_consulta.Class
         {
             return MedicineSymptomsCure;
         }
-        public string GetMedicineSeverity()
+        public MedicineSeverity GetMedicineSeverity()
         {
             return MedicineSeverity;
         }

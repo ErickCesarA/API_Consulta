@@ -262,3 +262,7 @@ C:\Users\erick\source\repos\API_consulta\API_consulta\obj\Debug\net6.0\refint\AP
 C:\Users\erick\source\repos\API_consulta\API_consulta\obj\Debug\net6.0\API_consulta.pdb
 C:\Users\erick\source\repos\API_consulta\API_consulta\obj\Debug\net6.0\API_consulta.genruntimeconfig.cache
 C:\Users\erick\source\repos\API_consulta\API_consulta\obj\Debug\net6.0\ref\API_consulta.dll
+C:\Users\erick\source\repos\API_consulta\API_consulta\bin\Debug\net6.0\Microsoft.Data.Sqlite.dll
+C:\Users\erick\source\repos\API_consulta\API_consulta\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Sqlite.dll
+C:\Users\erick\source\repos\API_consulta\API_consulta\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\erick\source\repos\API_consulta\API_consulta\bin\Debug\net6.0\SQLitePCLRaw.core.dll

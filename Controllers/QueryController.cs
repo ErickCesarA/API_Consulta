@@ -5,10 +5,10 @@ namespace API_consulta.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class MedicineController : ControllerBase
+    public class QueryController : ControllerBase
     {
         [HttpGet]
-        public ActionResult<List<MedicineController>> SerchMedicine()
+        public ActionResult<List<QueryController>> SerchMedicine()
         {
             return Ok();
         }

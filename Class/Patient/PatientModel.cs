@@ -1,22 +1,27 @@
-﻿using Microsoft.CodeAnalysis.CSharp.Syntax;
+﻿using API_consulta.Class.Patient;
+using API_consulta.Enums.Patient_Enums;
+using API_consulta.Managemet.Interface;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion.Internal;
 
 namespace API_consulta.Class
 
 {
-    public class PatientModel
+    public class PatientModel 
     {
+        protected int PatientId { get; set; }
         protected string? PatientName { get; set; }
         protected int PatientAge { get; set; }
-        protected string? PatientSex { get; set; }
+        protected PatientSex? PatientSex { get; set; }
         protected bool Pregnant { get; set; }
         protected bool Comorbidity { get; set; }
-        protected string? WhichComorbidity { get; set; }
+        protected WhichComorbidity? WhichComorbidity { get; set; }
         protected bool DrugAllergy { get; set; }
-        protected string? WhichDrugAllergy { get; set; }
+        protected WhichDrugAllergy? WhichDrugAllergy { get; set; }
 
-        public PatientModel(string PatientName, int PatientAge, string PatientSex, bool Pregnant, bool Comorbidity, string WhichComorbidity, bool DrugAllergy, string WhichDrugAllergy)
+        public PatientModel(int PatientId, string PatientName, int PatientAge, PatientSex PatientSex, bool Pregnant, bool Comorbidity, WhichComorbidity WhichComorbidity, bool DrugAllergy, WhichDrugAllergy WhichDrugAllergy)
         {
+            this.PatientId = PatientId;
             this.PatientName = PatientName;
             this.PatientAge = PatientAge;
             this.PatientSex = PatientSex;
@@ -26,15 +31,20 @@ namespace API_consulta.Class
             this.DrugAllergy = DrugAllergy;
             this.WhichDrugAllergy = WhichDrugAllergy;
         }
+
+        public int GetPatientId()
+        {
+            return PatientId;
+        }
         public string? GetPatientName()
         {
             return PatientName;
         }
-        public int GetPatientAgr()
+        public int GetPatientAge()
         {
             return PatientAge;
         }
-        public string? GetPatientSex()
+        public PatientSex? GetPatientSex()
         {
             return PatientSex;
         }
@@ -47,7 +57,7 @@ namespace API_consulta.Class
             return Comorbidity;
 
         }
-        public string? GetWhichComobidity()
+        public WhichComorbidity? GetWhichComobidity()
         {
             return WhichComorbidity;
         }
@@ -55,7 +65,7 @@ namespace API_consulta.Class
         {
             return DrugAllergy;
         }
-        public string? GetWihchDrugAllergy()
+        public WhichDrugAllergy? GetWhichDrugAllergy()
         {
             return WhichDrugAllergy;
         }

@@ -3,10 +3,10 @@
 namespace API_consulta.Management.Interface
 {
     public interface ISymptomsManagements
-    {
+    {   
+        Task<SymptomsModel> SerchSymptomsName(string symptoms_name);
         Task<List<SymptomsModel>> GetAllSymptoms();
-        Task<SymptomsModel> AttSymptoms(SymptomsModel Symptoms, string SymptomsName);
         Task<SymptomsModel> AddSymptoms(SymptomsModel Symptoms);
-        Task<bool> DelSymptoms(string SymptomsName);
+        Task<bool> DelSymptoms(string symptoms_name);
     }
 }
