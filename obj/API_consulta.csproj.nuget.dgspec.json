@@ -75,6 +75,14 @@
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.2.3, )"
+            },
+            "microsoft.entityframeworkcore.sqlite": {
+              "target": "Package",
+              "version": "[6.0.10, )"
+            },
+            "system.data.sqlite": {
+              "target": "Package",
+              "version": "[1.0.116, )"
             }
           },
           "imports": [

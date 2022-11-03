@@ -10,17 +10,20 @@ namespace API_consulta.Data_Base.Config
         {
             builder.ToTable("Medicine");
 
-            builder.HasKey(c => c.GetMedicineId());
+            builder.HasKey(MedicineModel.ExpressionsPropertySimplify.MedicineId);
 
-            builder.Property(c => c.GetMedicineName()).IsRequired().HasMaxLength(100);
+            builder.Property(MedicineModel.ExpressionsPropertySimplify.MedicineName).IsRequired().HasMaxLength(100);
 
-            builder.Property(c => c.GetMedicineMg()).IsRequired();
+            builder.Property(MedicineModel.ExpressionsPropertySimplify.MedicineMg).IsRequired();
 
-            builder.Property(c => c.GetMedicinePillNumber()).IsRequired();
+            builder.Property(MedicineModel.ExpressionsPropertySimplify.MedicinePillNumber).IsRequired();
 
-            builder.Property(c => c.GetMedicineAgeUse()).IsRequired();
+            builder.Property(MedicineModel.ExpressionsPropertySimplify.MedicineAgeUse).IsRequired();
 
-            builder.Property(c => c.GetMedicineSeverity()).IsRequired();
+            builder.Property(MedicineModel.ExpressionsPropertySimplify.MedicineSeverity).IsRequired();
+
+            builder.Property(MedicineModel.ExpressionsPropertySimplify.MedicineSymptomsCure).IsRequired();
+
 
         }
 

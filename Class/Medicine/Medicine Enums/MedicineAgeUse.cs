@@ -1,0 +1,14 @@
+﻿using System.ComponentModel;
+
+namespace API_consulta.Enums.Medicine_Enums
+{
+    public enum MedicineAgeUse
+    {
+        [Description("Pediatric use only")]
+        PediatricUseOnly = 1,
+        [Description("Adult use only")]
+        AdultOnlyUse = 2,
+        [Description("Adult and pedriatic use")]
+        AdultAndPediatricUse = 3,
+    }
+}

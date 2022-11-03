@@ -9,12 +9,13 @@ namespace API_consulta.Data_Base.Mapping
         public void Configure(EntityTypeBuilder<SymptomsModel> builder)
         {
             builder.ToTable("Symptoms");
+            builder.HasKey(SymptomsModel.ExpressionsPropertySimplify.SymptomsId);
 
-            builder.Property(c => c.GetSymptomsName()).IsRequired().HasMaxLength(100);
+            builder.Property(SymptomsModel.ExpressionsPropertySimplify.SymptomsName).IsRequired().HasMaxLength(100);
 
-            builder.Property(c => c.GetSymptomsGravity()).IsRequired();
+            builder.Property(SymptomsModel.ExpressionsPropertySimplify.SymptomsGravity).IsRequired();
 
-            builder.Property(c => c.GetSymptomsDescription()).IsRequired().HasMaxLength(1000);
+            builder.Property(SymptomsModel.ExpressionsPropertySimplify.SymptomsDescription).IsRequired().HasMaxLength(1000);
         }
     }
 }
