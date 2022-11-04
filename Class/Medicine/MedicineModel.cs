@@ -2,6 +2,7 @@
 using System.Linq.Expressions;
 using System.Security.Cryptography.X509Certificates;
 using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace API_consulta.Class
 {
@@ -12,10 +13,11 @@ namespace API_consulta.Class
         protected int MedicineMg { get; set; }
         protected int MedicinePillNumber { get; set; }
         protected MedicineAgeUse MedicineAgeUse { get; set; }
-        protected string MedicineSymptomsCure { get; set; } //Some Symptoms of a Symptoms List
+        [NotMapped]
+        protected List<SymptomsModel>? MedicineSymptomsCure { get; set; } //Some Symptoms of a Symptoms List
         protected MedicineSeverity MedicineSeverity { get; set; }
 
-        public MedicineModel (string MedicineName, int MedicineId, int MedicineMg, int MedicinePillNumber, MedicineAgeUse MedicineAgeUse, string MedicineSymptomsCure, MedicineSeverity MedicineSeverity)
+        public MedicineModel (string MedicineName, int MedicineId, int MedicineMg, int MedicinePillNumber, MedicineAgeUse MedicineAgeUse, MedicineSeverity MedicineSeverity)
         {
             this.MedicineName = MedicineName;
             this.MedicineId = MedicineId;
@@ -45,7 +47,7 @@ namespace API_consulta.Class
         {
             return this.MedicineAgeUse;
         }
-        public string GetMedicineSynptomsCure()
+        public List<SymptomsModel>? GetMedicineSynptomsCure()
         {
             return this.MedicineSymptomsCure;
         }
@@ -61,7 +63,6 @@ namespace API_consulta.Class
             public static readonly Expression<Func<MedicineModel, int>> MedicinePillNumber = x => x.MedicinePillNumber;
             public static readonly Expression<Func<MedicineModel, int>> MedicineMg = x => x.MedicineMg;
             public static readonly Expression<Func<MedicineModel, MedicineSeverity>> MedicineSeverity = x => x.MedicineSeverity;
-            public static readonly Expression<Func<MedicineModel, string>> MedicineSymptomsCure = x => x.MedicineSymptomsCure;
         }
 
 

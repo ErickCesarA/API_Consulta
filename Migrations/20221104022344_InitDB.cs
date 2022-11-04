@@ -9,6 +9,34 @@ namespace API_consulta.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "Allergy",
+                columns: table => new
+                {
+                    AllergyId = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    AllergyName = table.Column<string>(type: "TEXT", maxLength: 50, nullable: false),
+                    AllergyDescription = table.Column<string>(type: "TEXT", maxLength: 2000, nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Allergy", x => x.AllergyId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Comorbidity",
+                columns: table => new
+                {
+                    ComorbidityId = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    ComorbidityName = table.Column<string>(type: "TEXT", maxLength: 50, nullable: false),
+                    ComorbidityDescription = table.Column<string>(type: "TEXT", maxLength: 2000, nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Comorbidity", x => x.ComorbidityId);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Medicine",
                 columns: table => new
                 {
@@ -18,7 +46,6 @@ namespace API_consulta.Migrations
                     MedicineMg = table.Column<int>(type: "INTEGER", nullable: false),
                     MedicinePillNumber = table.Column<int>(type: "INTEGER", nullable: false),
                     MedicineAgeUse = table.Column<int>(type: "INTEGER", nullable: false),
-                    MedicineSymptomsCure = table.Column<string>(type: "TEXT", nullable: false),
                     MedicineSeverity = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
@@ -62,6 +89,12 @@ namespace API_consulta.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "Allergy");
+
+            migrationBuilder.DropTable(
+                name: "Comorbidity");
+
             migrationBuilder.DropTable(
                 name: "Medicine");
 

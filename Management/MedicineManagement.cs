@@ -23,7 +23,7 @@ namespace API_consulta.Management
 
         public async Task<MedicineModel> AddMedicine(MedicineModel Medicine)
         {
-           _dbContext.Medicine.Add(Medicine);
+           await _dbContext.Medicine.AddAsync(Medicine);
             await _dbContext.SaveChangesAsync();
              return Medicine; 
         }

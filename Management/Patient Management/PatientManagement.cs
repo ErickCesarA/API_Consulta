@@ -4,14 +4,14 @@ using API_consulta.Managemet.Interface;
 using Microsoft.EntityFrameworkCore;
 using System.Data;
 
-namespace API_consulta.Management
+namespace API_consulta.Management.Patient_Management
 {
-    public class PatientManagement : IPatientManagement 
+    public class PatientManagement : IPatientManagement
     {
         private readonly QueryDbContext _dbContext;
         public PatientManagement(QueryDbContext QueryDbContext)
         {
-            this._dbContext = QueryDbContext;
+            _dbContext = QueryDbContext;
         }
         public async Task<PatientModel> SerchPatientId(int patient_id)
         {
@@ -20,13 +20,13 @@ namespace API_consulta.Management
         public async Task<PatientModel> AddPatient(PatientModel Patient)
         {
             await _dbContext.Patient.AddAsync(Patient);
-             await _dbContext.SaveChangesAsync();
-              return Patient;
+            await _dbContext.SaveChangesAsync();
+            return Patient;
         }
 
         public async Task<PatientModel> AttPatient(PatientModel Patient, int patient_id)
         {
-            PatientModel  FoundPatient = await SerchPatientId(patient_id);
+            PatientModel FoundPatient = await SerchPatientId(patient_id);
             if (FoundPatient == null)
             {
                 throw new Exception("Patient not found");

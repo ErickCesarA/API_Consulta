@@ -9,6 +9,7 @@ namespace API_consulta.Data_Base.Mapping
         public void Configure(EntityTypeBuilder<SymptomsModel> builder)
         {
             builder.ToTable("Symptoms");
+
             builder.HasKey(SymptomsModel.ExpressionsPropertySimplify.SymptomsId);
 
             builder.Property(SymptomsModel.ExpressionsPropertySimplify.SymptomsName).IsRequired().HasMaxLength(100);

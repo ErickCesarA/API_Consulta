@@ -1,6 +1,8 @@
 using API_consulta.Data;
 using API_consulta.Management;
 using API_consulta.Management.Interface;
+using API_consulta.Management.Interface.PatientInterface;
+using API_consulta.Management.Patient_Management;
 using API_consulta.Managemet.Interface;
 using Microsoft.EntityFrameworkCore;
 
@@ -19,18 +21,20 @@ namespace API_consulta
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
-            var app = builder.Build();
+            //var app = builder.Build();
 
-            builder.Services.AddEntityFrameworkSqlServer()
+            builder.Services.AddEntityFrameworkSqlite()
                 .AddDbContext<QueryDbContext>(
-                options => options.UseSqlServer(builder.Configuration.GetConnectionString("DataBase"))
+                options => options.UseSqlite(builder.Configuration.GetConnectionString("DataBase"))
                 );
 
             builder.Services.AddScoped<IPatientManagement, PatientManagement>();
+            builder.Services.AddScoped<IDrugAllergyManagement, DrugAllergyManagement>();
+            builder.Services.AddScoped<IComorbidityManagement, ComorbidityManagement>();
             builder.Services.AddScoped<IMedicineManagement, MedicineManagement>();
             builder.Services.AddScoped<ISymptomsManagements, SymptomsManagement>();
 
-
+            var app = builder.Build();
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {

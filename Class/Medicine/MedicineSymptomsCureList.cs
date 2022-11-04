@@ -2,6 +2,6 @@
 {
     public class MedicineSymptomsCureList
     {
-        List<SymptomsModel> Symptoms = new List<SymptomsModel>();
+        protected List<SymptomsModel> SymptomsCure = new List<SymptomsModel>();
     }
 }

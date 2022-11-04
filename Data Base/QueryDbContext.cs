@@ -28,8 +28,8 @@ namespace API_consulta.Data
 
         }
         public DbSet<PatientModel> Patient { get; set; }
-        //public DbSet<WhichComorbidityModel> WhichComorbidity { get; set; }
-        //public DbSet<WhichDrugAllergyModel> WhichDrugAllergies { get; set; }
+        public DbSet<ComorbidityModel> Comorbidity { get; set; }
+        public DbSet<DrugAllergyModel> DrugAllergy { get; set; }
         public DbSet<MedicineModel> Medicine { get; set; }
         public DbSet<SymptomsModel> Symptoms { get; set; }
       
@@ -39,8 +39,8 @@ namespace API_consulta.Data
             modelBuilder.ApplyConfiguration(new PatientMap());
             modelBuilder.ApplyConfiguration(new MedicineMap());
             modelBuilder.ApplyConfiguration(new SymptomsMap());
-            //modelBuilder.ApplyConfiguration(new ComorbidityMap());
-            //modelBuilder.ApplyConfiguration(new DrugAllergyMap());
+            modelBuilder.ApplyConfiguration(new ComorbidityMap());
+            modelBuilder.ApplyConfiguration(new DrugAllergyMap());
 
 
             base.OnModelCreating(modelBuilder);

@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API_consulta.Migrations
 {
     [DbContext(typeof(QueryDbContext))]
-    [Migration("20221103000936_InitDB")]
+    [Migration("20221104022344_InitDB")]
     partial class InitDB
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -41,13 +41,49 @@ namespace API_consulta.Migrations
                     b.Property<int>("MedicineSeverity")
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("MedicineSymptomsCure")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
                     b.HasKey("MedicineId");
 
                     b.ToTable("Medicine", (string)null);
+                });
+
+            modelBuilder.Entity("API_consulta.Class.Patient.ComorbidityModel", b =>
+                {
+                    b.Property<int>("ComorbidityId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("ComorbidityDescription")
+                        .HasMaxLength(2000)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("ComorbidityName")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("ComorbidityId");
+
+                    b.ToTable("Comorbidity", (string)null);
+                });
+
+            modelBuilder.Entity("API_consulta.Class.Patient.DrugAllergyModel", b =>
+                {
+                    b.Property<int>("AllergyId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("AllergyDescription")
+                        .HasMaxLength(2000)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("AllergyName")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("AllergyId");
+
+                    b.ToTable("Allergy", (string)null);
                 });
 
             modelBuilder.Entity("API_consulta.Class.PatientModel", b =>

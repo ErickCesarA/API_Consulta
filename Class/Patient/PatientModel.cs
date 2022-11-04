@@ -20,10 +20,10 @@ namespace API_consulta.Class
         protected bool Pregnant { get; set; }
         protected bool Comorbidity { get; set; }
         [NotMapped]
-        protected WhichComorbidityModel? WhichComorbidity { get; set; }
+        protected ComorbidityModel? WhichComorbidity { get; set; }
         protected bool DrugAllergy { get; set; }
         [NotMapped]
-        protected WhichDrugAllergyModel? WhichDrugAllergy { get; set; }
+        protected DrugAllergyModel? WhichDrugAllergy { get; set; }
 
         public PatientModel(int PatientId, string PatientName, int PatientAge, PatientSex PatientSex, bool Pregnant, bool Comorbidity, bool DrugAllergy)
         {
@@ -37,8 +37,6 @@ namespace API_consulta.Class
             this.DrugAllergy = DrugAllergy;
             this.WhichDrugAllergy = WhichDrugAllergy;
         }
-
-       
         public int GetPatientId()
         {
 
@@ -65,7 +63,7 @@ namespace API_consulta.Class
             return this.Comorbidity;
 
         }
-        public WhichComorbidityModel? GetWhichComobidity()
+        public ComorbidityModel? GetWhichComobidity()
         {
             return this.WhichComorbidity;
         }
@@ -73,7 +71,7 @@ namespace API_consulta.Class
         {
             return this.DrugAllergy;
         }
-        public WhichDrugAllergyModel? GetWhichDrugAllergy()
+        public DrugAllergyModel? GetWhichDrugAllergy()
         {
             return this.WhichDrugAllergy;
         }

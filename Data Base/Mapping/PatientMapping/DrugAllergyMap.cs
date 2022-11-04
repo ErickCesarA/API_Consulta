@@ -8,15 +8,18 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace API_consulta.Data_Base.Config
 {
-    public class DrugAllergyMap : IEntityTypeConfiguration<WhichDrugAllergyModel>
+    public class DrugAllergyMap : IEntityTypeConfiguration<DrugAllergyModel>
 
     {
-        public void Configure(EntityTypeBuilder<WhichDrugAllergyModel> builder)
+        public void Configure(EntityTypeBuilder<DrugAllergyModel> builder)
         {
             builder.ToTable("Allergy");
 
-            builder.Property(WhichDrugAllergyModel.ExpressionsPropertySimplify.ComorbidityName).HasMaxLength(50).IsRequired();
-            builder.Property(WhichDrugAllergyModel.ExpressionsPropertySimplify.ComorbidityDescription).HasMaxLength(2000);
+            builder.HasKey(DrugAllergyModel.ExpressionsPropertySimplify.AllergyId);
+
+            builder.Property(DrugAllergyModel.ExpressionsPropertySimplify.AllergyName).HasMaxLength(50).IsRequired();
+
+            builder.Property(DrugAllergyModel.ExpressionsPropertySimplify.AllergyDescription).HasMaxLength(2000);
         }
     }
 }

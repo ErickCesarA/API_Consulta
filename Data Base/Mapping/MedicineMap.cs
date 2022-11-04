@@ -22,9 +22,6 @@ namespace API_consulta.Data_Base.Config
 
             builder.Property(MedicineModel.ExpressionsPropertySimplify.MedicineSeverity).IsRequired();
 
-            builder.Property(MedicineModel.ExpressionsPropertySimplify.MedicineSymptomsCure).IsRequired();
-
-
         }
 
     }
