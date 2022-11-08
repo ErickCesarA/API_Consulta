@@ -4,16 +4,16 @@ namespace API_consulta.Class.Patient
 {
     public class DrugAllergyModel
     {
-        protected int AllergyId { get; set; }
-        protected string AllergyName { get; set; }
-        protected string? AllergyDescription{ get; set; }
+        public int AllergyId { protected get;  set; }
+        public string AllergyName { protected get;  set; }
+        public string? AllergyDescription { protected get;  set; }
 
-        public DrugAllergyModel (int AllergyId, string allergyName, string? allergyDescription)
+        public DrugAllergyModel(int AllergyId, string allergyName, string? allergyDescription)
         {
             this.AllergyId = AllergyId;
             this.AllergyName = allergyName;
             this.AllergyDescription = allergyDescription;
-        }   
+        }
         public int GetAllergyId()
         {
             return this.AllergyId;

@@ -21,11 +21,9 @@ namespace API_consulta
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
-            //var app = builder.Build();
-
             builder.Services.AddEntityFrameworkSqlite()
                 .AddDbContext<QueryDbContext>(
-                options => options.UseSqlite(builder.Configuration.GetConnectionString("DataBase"))
+                options => options.UseSqlite(builder.Configuration.GetConnectionString("QueryDataBase"))
                 );
 
             builder.Services.AddScoped<IPatientManagement, PatientManagement>();

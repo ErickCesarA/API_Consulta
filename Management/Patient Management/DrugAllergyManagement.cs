@@ -12,19 +12,21 @@ namespace API_consulta.Management.Patient_Management
         {
             _dbContext = QueryDbContext;
         }
-        public async Task<List<DrugAllergyModel>> GetAllAllergy()
-        {
-            return await _dbContext.DrugAllergy.ToListAsync();
-        }
-        public async Task<DrugAllergyModel> SerchAllergyId(int drug_allergy_id)
-        {
-            return await _dbContext.DrugAllergy.FirstOrDefaultAsync(finder => finder.GetAllergyId() == drug_allergy_id);
-        }
         public async Task<DrugAllergyModel> AddAllergy(DrugAllergyModel drug_allergy)
         {
             await _dbContext.DrugAllergy.AddAsync(drug_allergy);
             await _dbContext.SaveChangesAsync();
-            return drug_allergy;
+           return drug_allergy;
+        }
+
+        public async Task<DrugAllergyModel> SerchAllergyId(int drug_allergy_id)
+        {
+            return await _dbContext.DrugAllergy.FirstOrDefaultAsync(finder => finder.GetAllergyId() == drug_allergy_id);
+        }
+
+        public async Task<List<DrugAllergyModel>> GetAllAllergy()
+        {
+            return await _dbContext.DrugAllergy.ToListAsync();
         }
 
         public async Task<bool> DelAllergy(int drug_allergy_id)

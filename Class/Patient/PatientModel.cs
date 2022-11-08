@@ -1,29 +1,24 @@
 ﻿using API_consulta.Class.Patient;
-using API_consulta.Enums.Patient_Enums;
-using API_consulta.Managemet.Interface;
-using Microsoft.AspNetCore.Mvc.ViewFeatures;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Microsoft.Data.SqlClient;
-using Microsoft.EntityFrameworkCore.Storage.ValueConversion.Internal;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq.Expressions;
+using System.Security.Cryptography.X509Certificates;
 
 namespace API_consulta.Class
 
 {
     public class PatientModel
     {
-        protected int PatientId { get; set; }
-        protected string? PatientName { get; set; }
-        protected int PatientAge { get; set; }
-        protected PatientSex PatientSex { get; set; }
-        protected bool Pregnant { get; set; }
-        protected bool Comorbidity { get; set; }
+        public int PatientId { protected get; set; }
+        public string? PatientName { protected get; set; }
+        public int PatientAge { protected get; set; }
+        public PatientSex PatientSex { protected get; set; }
+        public bool Pregnant { protected get; set; }
+        public bool Comorbidity { protected get; set; }
         [NotMapped]
-        protected ComorbidityModel? WhichComorbidity { get; set; }
-        protected bool DrugAllergy { get; set; }
+        public virtual List<ComorbidityModel>? WhichComorbidity { protected get; set; }
+        public bool DrugAllergy { protected get; set; }
         [NotMapped]
-        protected DrugAllergyModel? WhichDrugAllergy { get; set; }
+        public virtual List<DrugAllergyModel>? WhichDrugAllergy { protected get; set; }
 
         public PatientModel(int PatientId, string PatientName, int PatientAge, PatientSex PatientSex, bool Pregnant, bool Comorbidity, bool DrugAllergy)
         {
@@ -63,7 +58,7 @@ namespace API_consulta.Class
             return this.Comorbidity;
 
         }
-        public ComorbidityModel? GetWhichComobidity()
+        public List<ComorbidityModel>? GetWhichComobidity()
         {
             return this.WhichComorbidity;
         }
@@ -71,7 +66,7 @@ namespace API_consulta.Class
         {
             return this.DrugAllergy;
         }
-        public DrugAllergyModel? GetWhichDrugAllergy()
+        public List<DrugAllergyModel>? GetWhichDrugAllergy()
         {
             return this.WhichDrugAllergy;
         }

@@ -12,21 +12,22 @@ namespace API_consulta.Management
         {
             _dbContext = QueryDbContext;
         }
+        public async Task<SymptomsModel> AddSymptoms(SymptomsModel symptoms)
+        {
+            await _dbContext.Symptoms.AddAsync(symptoms);
+            await _dbContext.SaveChangesAsync();
+            return symptoms;
+        }
+
         public async Task<SymptomsModel> SerchSymptomsId(int symptoms_id)
         {
             return await _dbContext.Symptoms.FirstOrDefaultAsync(finder => finder.GetSymptomsId() == symptoms_id);
         }
+
         public async Task<List<SymptomsModel>> GetAllSymptoms()
         {
             return await _dbContext.Symptoms.ToListAsync();
         }
-        public async Task<SymptomsModel> AddSymptoms(SymptomsModel symptoms)
-        {
-           await _dbContext.Symptoms.AddAsync(symptoms);
-            await _dbContext.SaveChangesAsync();
-             return  symptoms;
-        }
-
         public async Task<bool> DelSymptoms(int symptoms_id)
         {
             SymptomsModel FoundSymptoms = await SerchSymptomsId(symptoms_id);

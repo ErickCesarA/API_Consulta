@@ -1,7 +1,7 @@
 ﻿using API_consulta.Class.Patient;
 using API_consulta.Management.Interface.PatientInterface;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace API_consulta.Controllers.Patient_Controller
 {
@@ -15,23 +15,26 @@ namespace API_consulta.Controllers.Patient_Controller
         {
             _comorbidityManagement = comorbidityManagement;
         }
-        [HttpGet]
-        public async Task<ActionResult<List<ComorbidityModel>>> GetAllComorbidity()
+
+        [HttpPost]
+        public async Task<ActionResult<ComorbidityModel>> RegisterComorbidity([FromBody] ComorbidityModel comorbidityModel)
         {
-            List<ComorbidityModel> comorbidities = await _comorbidityManagement.GetAllComorbidity();
-            return Ok(comorbidities);
+            ComorbidityModel comorbidity = await _comorbidityManagement.AddComorbidity(comorbidityModel);
+            return Ok(comorbidity);
         }
-        [HttpGet("comorbidity_id")]
+
+        [HttpGet("comorbidity id")]
         public async Task<ActionResult<ComorbidityModel>> SerchComorbidityId(int comorbidity_id)
         {
             ComorbidityModel comorbidity = await _comorbidityManagement.SerchComorbidityId(comorbidity_id);
             return Ok(comorbidity);
         }
-        [HttpPost]
-        public async Task<ActionResult<ComorbidityModel>> AddComorbidity([FromBody] ComorbidityModel comorbidityModel)
+
+        [HttpGet]
+        public async Task<ActionResult<List<ComorbidityModel>>> GetAllComorbidity()
         {
-            ComorbidityModel comorbidity = await _comorbidityManagement.AddComorbidity(comorbidityModel);
-            return Ok(comorbidity);
+            List<ComorbidityModel> comorbidities = await _comorbidityManagement.GetAllComorbidity();
+            return Ok(comorbidities);
         }
 
     }

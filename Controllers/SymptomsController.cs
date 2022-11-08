@@ -1,7 +1,5 @@
 ﻿using API_consulta.Class;
-using API_consulta.Management;
 using API_consulta.Management.Interface;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API_consulta.Controllers
@@ -16,16 +14,16 @@ namespace API_consulta.Controllers
         {
             _symptomsManagement = simptomsManagement;
         }
-        [HttpGet("symptoms_id")]
-        public async Task<ActionResult<SymptomsModel>> SerchSymptomsId(int symptoms_id)
-        {
-            SymptomsModel symptoms = await _symptomsManagement.SerchSymptomsId(symptoms_id);
-            return Ok(symptoms);
-        }
         [HttpPost]
         public async Task<ActionResult<SymptomsModel>> AddSymptoms([FromBody] SymptomsModel symptomsModel)
         {
             SymptomsModel symptoms = await _symptomsManagement.AddSymptoms(symptomsModel);
+            return Ok(symptoms);
+        }
+        [HttpGet("symptoms id")]
+        public async Task<ActionResult<SymptomsModel>> SerchSymptomsId(int symptoms_id)
+        {
+            SymptomsModel symptoms = await _symptomsManagement.SerchSymptomsId(symptoms_id);
             return Ok(symptoms);
         }
     }

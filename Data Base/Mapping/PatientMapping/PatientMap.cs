@@ -6,6 +6,7 @@ using static API_consulta.Class.PatientModel;
 using System.Reflection.Emit;
 using System.ComponentModel.DataAnnotations.Schema;
 using Newtonsoft.Json;
+using System.Security.Cryptography.X509Certificates;
 
 namespace API_consulta.Data_Base.Config
 {
@@ -30,7 +31,7 @@ namespace API_consulta.Data_Base.Config
 
             builder.Property(PatientModel.ExpressionsPropertySimplify.DrugAllergy).IsRequired();
 
-
         }
+      
     }
 }

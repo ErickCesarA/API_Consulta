@@ -21,7 +21,7 @@ namespace API_consulta.Data_Base.Config
             builder.Property(MedicineModel.ExpressionsPropertySimplify.MedicineAgeUse).IsRequired();
 
             builder.Property(MedicineModel.ExpressionsPropertySimplify.MedicineSeverity).IsRequired();
-
+            
         }
 
     }

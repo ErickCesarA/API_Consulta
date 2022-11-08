@@ -12,6 +12,12 @@ namespace API_consulta.Management
         {
             _dbContext = QueryDbContext;
         }
+        public async Task<MedicineModel> AddMedicine(MedicineModel Medicine)
+        {
+            await _dbContext.Medicine.AddAsync(Medicine);
+            await _dbContext.SaveChangesAsync();
+            return Medicine;
+        }
         public async Task<MedicineModel> SerchMedicineId(int medicine_id)
         {
             return  await _dbContext.Medicine.FirstOrDefaultAsync(finder => finder.GetMedicineId() == medicine_id);
@@ -20,14 +26,6 @@ namespace API_consulta.Management
         {
             return await _dbContext.Medicine.ToListAsync();
         }
-
-        public async Task<MedicineModel> AddMedicine(MedicineModel Medicine)
-        {
-           await _dbContext.Medicine.AddAsync(Medicine);
-            await _dbContext.SaveChangesAsync();
-             return Medicine; 
-        }
-
         public async Task<bool> DelMedicine(int medicine_id)
         {
             MedicineModel FoundMedicine = await SerchMedicineId(medicine_id);

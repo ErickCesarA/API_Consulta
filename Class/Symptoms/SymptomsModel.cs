@@ -1,14 +1,14 @@
-﻿using API_consulta.Enums;
+﻿using API_consulta.Class.Symptoms;
 using System.Linq.Expressions;
 
 namespace API_consulta.Class
 {
     public class SymptomsModel
     {
-        protected int SymptomsId { get; set; }
-        protected string SymptomsName { get; set; }
-        protected SymptomsGravity SymptomsGravity { get; set; }
-        protected string? SymptomsDescription { get; set; }
+        public int SymptomsId { protected get;  set; }
+        public string SymptomsName { protected get;  set; }
+        public SymptomsGravity SymptomsGravity { protected get;  set; }
+        public string? SymptomsDescription { protected get;  set; }
 
         public SymptomsModel(int SymptomsId, string SymptomsName, SymptomsGravity SymptomsGravity, string? symptomsDescription)
         {

@@ -2,7 +2,6 @@
 using API_consulta.Data;
 using API_consulta.Managemet.Interface;
 using Microsoft.EntityFrameworkCore;
-using System.Data;
 
 namespace API_consulta.Management.Patient_Management
 {
@@ -13,17 +12,17 @@ namespace API_consulta.Management.Patient_Management
         {
             _dbContext = QueryDbContext;
         }
-        public async Task<PatientModel> SerchPatientId(int patient_id)
-        {
-            return await _dbContext.Patient.FirstOrDefaultAsync(finder => finder.GetPatientId() == patient_id);
-        }
         public async Task<PatientModel> AddPatient(PatientModel Patient)
         {
             await _dbContext.Patient.AddAsync(Patient);
             await _dbContext.SaveChangesAsync();
             return Patient;
         }
-
+        public async Task<PatientModel> SerchPatientId(int patient_id)
+        {
+            return await _dbContext.Patient.FirstOrDefaultAsync(finder => finder.GetPatientId() == patient_id);
+        }
+     
         public async Task<PatientModel> AttPatient(PatientModel Patient, int patient_id)
         {
             PatientModel FoundPatient = await SerchPatientId(patient_id);

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace API_consulta.Enums.Patient_Enums
+namespace API_consulta.Class.Patient
 {
     public enum PatientSex
     {
@@ -9,5 +9,5 @@ namespace API_consulta.Enums.Patient_Enums
         [Description("Female")]
         FemalePatient = 2,
 
-    }
+    } 
 }

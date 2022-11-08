@@ -1,21 +1,19 @@
-﻿using API_consulta.Enums.Medicine_Enums;
-using System.Linq.Expressions;
-using System.Security.Cryptography.X509Certificates;
-using Microsoft.EntityFrameworkCore;
+﻿using System.Linq.Expressions;
 using System.ComponentModel.DataAnnotations.Schema;
+using API_consulta.Class.Medicine;
 
 namespace API_consulta.Class
 {
     public class MedicineModel
     {
-        protected string MedicineName { get; set; }
-        protected int MedicineId { get; set; }
-        protected int MedicineMg { get; set; }
-        protected int MedicinePillNumber { get; set; }
-        protected MedicineAgeUse MedicineAgeUse { get; set; }
+        public string MedicineName { protected get; set; }
+        public int MedicineId { protected get; set; }
+        public int MedicineMg { protected get; set; }
+        public int MedicinePillNumber { protected get; set; }
+        public MedicineAgeUse MedicineAgeUse { protected get; set; }
         [NotMapped]
-        protected List<SymptomsModel>? MedicineSymptomsCure { get; set; } //Some Symptoms of a Symptoms List
-        protected MedicineSeverity MedicineSeverity { get; set; }
+        public virtual List<SymptomsModel>? MedicineSymptomsCure { get; set; } //Some Symptoms of a Symptoms List
+        public MedicineSeverity MedicineSeverity { get; set; }
 
         public MedicineModel (string MedicineName, int MedicineId, int MedicineMg, int MedicinePillNumber, MedicineAgeUse MedicineAgeUse, MedicineSeverity MedicineSeverity)
         {

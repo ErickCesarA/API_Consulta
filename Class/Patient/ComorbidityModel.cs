@@ -1,19 +1,21 @@
-﻿using System.Linq.Expressions;
+﻿using Microsoft.JSInterop;
+using System.Linq.Expressions;
+using System.Text.Json.Serialization;
 
 namespace API_consulta.Class.Patient
 {
-    public class ComorbidityModel
+   public class ComorbidityModel
     {
-        protected int ComorbidityId { get; set; }
-        protected string ComorbidityName { get; set; }
-        protected string? ComorbidityDescription { get; set; }
-        public ComorbidityModel (int ComorbidityId, string ComorbidityName, string ComorbidityDescription)
+        public int? ComorbidityId { protected get;  set; }
+        public string ComorbidityName { protected get;  set; }
+        public string? ComorbidityDescription { protected get;  set; }
+        public ComorbidityModel(int ComorbidityId, string ComorbidityName, string ComorbidityDescription)
         {
             this.ComorbidityId = ComorbidityId;
             this.ComorbidityName = ComorbidityName;
-            this.ComorbidityDescription = ComorbidityDescription;   
+            this.ComorbidityDescription = ComorbidityDescription;
         }
-        public int GetComorbidityId()
+        public int? GetComorbidityId()
         {
             return this.ComorbidityId;
         }
