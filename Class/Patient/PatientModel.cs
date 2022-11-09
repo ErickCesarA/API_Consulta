@@ -1,4 +1,4 @@
-﻿using API_consulta.Class.Patient;
+﻿using API_consulta.Enums;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq.Expressions;
 using System.Security.Cryptography.X509Certificates;
@@ -13,24 +13,19 @@ namespace API_consulta.Class
         public int PatientAge { protected get; set; }
         public PatientSex PatientSex { protected get; set; }
         public bool Pregnant { protected get; set; }
-        public bool Comorbidity { protected get; set; }
-        [NotMapped]
-        public virtual List<ComorbidityModel>? WhichComorbidity { protected get; set; }
-        public bool DrugAllergy { protected get; set; }
-        [NotMapped]
-        public virtual List<DrugAllergyModel>? WhichDrugAllergy { protected get; set; }
 
-        public PatientModel(int PatientId, string PatientName, int PatientAge, PatientSex PatientSex, bool Pregnant, bool Comorbidity, bool DrugAllergy)
+
+        public PatientModel(int PatientId, string PatientName, int PatientAge, PatientSex PatientSex, bool Pregnant)// bool Comorbidity, bool DrugAllergyList)
         {
             this.PatientId = PatientId;
             this.PatientName = PatientName;
             this.PatientAge = PatientAge;
             this.PatientSex = PatientSex;
             this.Pregnant = Pregnant;
-            this.Comorbidity = Comorbidity;
-            this.WhichComorbidity = WhichComorbidity;
-            this.DrugAllergy = DrugAllergy;
-            this.WhichDrugAllergy = WhichDrugAllergy;
+            //this.Comorbidity = Comorbidity;
+            ////this.WhichComorbidity = WhichComorbidity;
+            ////this.DrugAllergy = DrugAllergy;
+            //this.WhichDrugAllergy = WhichDrugAllergy;
         }
         public int GetPatientId()
         {
@@ -53,23 +48,23 @@ namespace API_consulta.Class
         {
             return this.Pregnant;
         }
-        public bool GetComorbidity()
-        {
-            return this.Comorbidity;
+        //public bool GetComorbidity()
+        //{
+        //    return this.Comorbidity;
 
-        }
-        public List<ComorbidityModel>? GetWhichComobidity()
-        {
-            return this.WhichComorbidity;
-        }
-        public bool? GetDrugAllergy()
-        {
-            return this.DrugAllergy;
-        }
-        public List<DrugAllergyModel>? GetWhichDrugAllergy()
-        {
-            return this.WhichDrugAllergy;
-        }
+        //}
+        //public List<ComorbidityModel>? GetWhichComobidity()
+        //{
+        //    return this.WhichComorbidity;
+        //}
+        //public bool? GetDrugAllergy()
+        //{
+        //    return this.DrugAllergy;
+        //}
+        //public List<DrugAllergyModel>? GetWhichDrugAllergy()
+        //{
+        //    return this.WhichDrugAllergy;
+        //}
         public class ExpressionsPropertySimplify //put in a separate method later
         {
             public static readonly Expression<Func<PatientModel, object?>> PatientId = x => x.PatientId;
@@ -77,10 +72,12 @@ namespace API_consulta.Class
             public static readonly Expression<Func<PatientModel, int>> PatientAge = x => x.PatientAge;
             public static readonly Expression<Func<PatientModel, PatientSex>> PatientSex = x => x.PatientSex;
             public static readonly Expression<Func<PatientModel, bool>> Pregnant = x => x.Pregnant;
-            public static readonly Expression<Func<PatientModel, bool>> Comorbidity = x => x.Comorbidity;
-            public static readonly Expression<Func<PatientModel, bool>> DrugAllergy = x => x.DrugAllergy;
-          
-            
+            //public static readonly Expression<Func<PatientModel, bool>> Comorbidity = x => x.Comorbidity;
+            //public static readonly Expression<Func<PatientModel, bool>> DrugAllergy = x => x.DrugAllergy;
+            //public static readonly Expression<Func<PatientModel, object?>> WhichComorbidity = x => x.WhichComorbidity;
+            //public static readonly Expression<Func<PatientModel, object?>> WhichDrugAllergy = x => x.WhichDrugAllergy;
+
+
         }
 
     }

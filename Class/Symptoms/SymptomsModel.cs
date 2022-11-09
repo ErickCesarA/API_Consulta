@@ -1,4 +1,4 @@
-﻿using API_consulta.Class.Symptoms;
+﻿using API_consulta.Enums;
 using System.Linq.Expressions;
 
 namespace API_consulta.Class

@@ -35,6 +35,13 @@ namespace API_consulta.Controllers
             List<MedicineModel> medicines = await _medicineManagement.GetAllMedicine();
             return Ok(medicines);
         }
-  
+
+        [HttpDelete]
+        public async Task<ActionResult<MedicineModel>> DelMedicide(int medicine_id)
+        {
+            bool delMedicine = await _medicineManagement.DelMedicine(medicine_id);
+            return Ok(delMedicine);
+        }
+
     }
 }

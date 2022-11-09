@@ -27,5 +27,21 @@ namespace API_consulta.Controllers
             return Ok(patient);
         }
 
+        [HttpPut]
+        public async Task<ActionResult<PatientModel>> AttPatient([FromBody] PatientModel patientModel, int patient_id)
+        {
+            patientModel.PatientId = patient_id;
+            PatientModel patient = await _patientManagement.AttPatient(patientModel, patient_id);
+            return Ok(patient);
+        }
+
+        [HttpDelete]
+        public async Task<ActionResult<PatientModel>> DelPatient(int patient_id)
+        {
+            bool delPatient = await _patientManagement.DelPatient(patient_id);
+            return Ok(delPatient);
+        }
+
+
     }
 }

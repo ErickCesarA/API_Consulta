@@ -1,6 +1,7 @@
-﻿using System.Linq.Expressions;
+﻿
+using System.Linq.Expressions;
 using System.ComponentModel.DataAnnotations.Schema;
-using API_consulta.Class.Medicine;
+using API_consulta.Enums;
 
 namespace API_consulta.Class
 {
@@ -12,7 +13,7 @@ namespace API_consulta.Class
         public int MedicinePillNumber { protected get; set; }
         public MedicineAgeUse MedicineAgeUse { protected get; set; }
         [NotMapped]
-        public virtual List<SymptomsModel>? MedicineSymptomsCure { get; set; } //Some Symptoms of a Symptoms List
+        //public virtual List<SymptomsModel>? MedicineSymptomsCure { get; set; } //Some Symptoms of a Symptoms List
         public MedicineSeverity MedicineSeverity { get; set; }
 
         public MedicineModel (string MedicineName, int MedicineId, int MedicineMg, int MedicinePillNumber, MedicineAgeUse MedicineAgeUse, MedicineSeverity MedicineSeverity)
@@ -22,7 +23,7 @@ namespace API_consulta.Class
             this.MedicineMg = MedicineMg;
             this.MedicinePillNumber = MedicinePillNumber;
             this.MedicineAgeUse = MedicineAgeUse;
-            this.MedicineSymptomsCure = MedicineSymptomsCure;
+            //this.MedicineSymptomsCure = MedicineSymptomsCure;
             this.MedicineSeverity = MedicineSeverity;
         }
         public string GetMedicineName()
@@ -45,10 +46,10 @@ namespace API_consulta.Class
         {
             return this.MedicineAgeUse;
         }
-        public List<SymptomsModel>? GetMedicineSynptomsCure()
-        {
-            return this.MedicineSymptomsCure;
-        }
+        //public List<SymptomsModel>? GetMedicineSynptomsCure()
+        //{
+        //    return this.MedicineSymptomsCure;
+        //}
         public MedicineSeverity GetMedicineSeverity()
         {
             return this.MedicineSeverity;

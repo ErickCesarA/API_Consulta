@@ -34,10 +34,10 @@ namespace API_consulta.Management.Patient_Management
             _ = FoundPatient.GetPatientAge() == Patient.GetPatientAge();
             _ = FoundPatient.GetPatientSex() == Patient.GetPatientSex();
             _ = FoundPatient.GetPregnat() == Patient.GetPregnat();
-            _ = FoundPatient.GetComorbidity() == Patient.GetComorbidity();
-            _ = FoundPatient.GetWhichComobidity() == Patient.GetWhichComobidity();
-            _ = FoundPatient.GetDrugAllergy() == Patient.GetDrugAllergy();
-            _ = FoundPatient.GetWhichDrugAllergy() == Patient.GetWhichDrugAllergy();
+            //_ = FoundPatient.GetComorbidity() == Patient.GetComorbidity();
+            //_ = FoundPatient.GetWhichComobidity() == Patient.GetWhichComobidity();
+            //_ = FoundPatient.GetDrugAllergy() == Patient.GetDrugAllergy();
+            //_ = FoundPatient.GetWhichDrugAllergy() == Patient.GetWhichDrugAllergy();
 
             _dbContext.Patient.Update(FoundPatient);
             await _dbContext.SaveChangesAsync();

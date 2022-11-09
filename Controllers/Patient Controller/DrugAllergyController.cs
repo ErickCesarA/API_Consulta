@@ -1,4 +1,5 @@
-﻿using API_consulta.Class.Patient;
+﻿using API_consulta.Class;
+using API_consulta.Class.Patient;
 using API_consulta.Management.Interface.PatientInterface;
 using Microsoft.AspNetCore.Mvc;
 
@@ -35,6 +36,13 @@ namespace API_consulta.Controllers.Patient_Controller
             List<DrugAllergyModel> drugAllerges = await _allergyManagement.GetAllAllergy();
             return Ok(drugAllerges);
         }
-  
+
+        [HttpDelete]
+        public async Task<ActionResult<DrugAllergyModel>> DelAllergy(int drug_allergy_id)
+        {
+            bool delAllergy = await _allergyManagement.DelAllergy(drug_allergy_id);
+            return Ok(delAllergy);
+        }
+
     }
 }

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace API_consulta.Class.Symptoms
+namespace API_consulta.Enums
 {
     public enum SymptomsGravity
     {

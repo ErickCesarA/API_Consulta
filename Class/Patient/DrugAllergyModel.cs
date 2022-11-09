@@ -1,4 +1,5 @@
-﻿using System.Linq.Expressions;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq.Expressions;
 
 namespace API_consulta.Class.Patient
 {
@@ -8,11 +9,11 @@ namespace API_consulta.Class.Patient
         public string AllergyName { protected get;  set; }
         public string? AllergyDescription { protected get;  set; }
 
-        public DrugAllergyModel(int AllergyId, string allergyName, string? allergyDescription)
+        public DrugAllergyModel(int AllergyId, string AllergyName, string? AllergyDescription)
         {
             this.AllergyId = AllergyId;
-            this.AllergyName = allergyName;
-            this.AllergyDescription = allergyDescription;
+            this.AllergyName = AllergyName;
+            this.AllergyDescription = AllergyDescription;
         }
         public int GetAllergyId()
         {
@@ -26,6 +27,9 @@ namespace API_consulta.Class.Patient
         {
             return this.AllergyDescription;
         }
+        //public bool DrugAllergy { protected get; set; }
+        //[NotMapped]
+        //protected virtual List<DrugAllergyModel>? WhichDrugAllergy { get; set; }
         public class ExpressionsPropertySimplify
         {
             public static readonly Expression<Func<DrugAllergyModel, object?>> AllergyId = x => x.AllergyId;
