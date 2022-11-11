@@ -5,31 +5,25 @@ namespace API_consulta.Class.Patient
 {
     public class DrugAllergyModel
     {
-        public int AllergyId { protected get;  set; }
-        public string AllergyName { protected get;  set; }
-        public string? AllergyDescription { protected get;  set; }
-
-        public DrugAllergyModel(int AllergyId, string AllergyName, string? AllergyDescription)
+        protected int AllergyId;
+        protected string? AllergyName;
+        protected string? AllergyDescription;
+        public int allergyId
         {
-            this.AllergyId = AllergyId;
-            this.AllergyName = AllergyName;
-            this.AllergyDescription = AllergyDescription;
+            get { return AllergyId;}
+            set { AllergyId = value;}   
         }
-        public int GetAllergyId()
+        public string? allergyName
         {
-            return this.AllergyId;
+            get { return AllergyName; }
+            set { AllergyName = value; }
         }
-        public string GetAllergyName()
+        public string? allergyDescription
         {
-            return this.AllergyName;
+            get { return AllergyDescription; }
+            set { AllergyDescription = value; }
         }
-        public string? GetAllergyDescription()
-        {
-            return this.AllergyDescription;
-        }
-        //public bool DrugAllergy { protected get; set; }
-        //[NotMapped]
-        //protected virtual List<DrugAllergyModel>? WhichDrugAllergy { get; set; }
+        
         public class ExpressionsPropertySimplify
         {
             public static readonly Expression<Func<DrugAllergyModel, object?>> AllergyId = x => x.AllergyId;

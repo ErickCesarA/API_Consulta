@@ -12,6 +12,7 @@ namespace API_consulta.Management.Patient_Management
         {
             _dbContext = QueryDbContext;
         }
+       
         public async Task<PatientModel> AddPatient(PatientModel Patient)
         {
             await _dbContext.Patient.AddAsync(Patient);
@@ -20,9 +21,12 @@ namespace API_consulta.Management.Patient_Management
         }
         public async Task<PatientModel> SerchPatientId(int patient_id)
         {
-            return await _dbContext.Patient.FirstOrDefaultAsync(finder => finder.GetPatientId() == patient_id);
+            return await _dbContext.Patient.FirstOrDefaultAsync(finder => finder.patientId == patient_id);
         }
-     
+        public async Task<List<PatientModel>> GetAllPatient()
+        {
+            return await _dbContext.Patient.ToListAsync();
+        }
         public async Task<PatientModel> AttPatient(PatientModel Patient, int patient_id)
         {
             PatientModel FoundPatient = await SerchPatientId(patient_id);
@@ -30,15 +34,11 @@ namespace API_consulta.Management.Patient_Management
             {
                 throw new Exception("Patient not found");
             }
-            _ = FoundPatient.GetPatientName() == Patient.GetPatientName();
-            _ = FoundPatient.GetPatientAge() == Patient.GetPatientAge();
-            _ = FoundPatient.GetPatientSex() == Patient.GetPatientSex();
-            _ = FoundPatient.GetPregnat() == Patient.GetPregnat();
-            //_ = FoundPatient.GetComorbidity() == Patient.GetComorbidity();
-            //_ = FoundPatient.GetWhichComobidity() == Patient.GetWhichComobidity();
-            //_ = FoundPatient.GetDrugAllergy() == Patient.GetDrugAllergy();
-            //_ = FoundPatient.GetWhichDrugAllergy() == Patient.GetWhichDrugAllergy();
-
+            _ = FoundPatient.patientName == Patient.patientName;
+            _ = FoundPatient.patientAge == Patient.patientAge;
+            _ = FoundPatient.patientSex == Patient.patientSex;
+            _ = FoundPatient.pregnant == Patient.pregnant;
+        
             _dbContext.Patient.Update(FoundPatient);
             await _dbContext.SaveChangesAsync();
 

@@ -21,7 +21,7 @@ namespace API_consulta.Management.Patient_Management
 
         public async Task<DrugAllergyModel> SerchAllergyId(int drug_allergy_id)
         {
-            return await _dbContext.DrugAllergy.FirstOrDefaultAsync(finder => finder.GetAllergyId() == drug_allergy_id);
+            return await _dbContext.DrugAllergy.FirstOrDefaultAsync(finder => finder.allergyId == drug_allergy_id);
         }
 
         public async Task<List<DrugAllergyModel>> GetAllAllergy()

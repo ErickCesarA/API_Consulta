@@ -7,54 +7,48 @@ namespace API_consulta.Class
 {
     public class MedicineModel
     {
-        public string MedicineName { protected get; set; }
-        public int MedicineId { protected get; set; }
-        public int MedicineMg { protected get; set; }
-        public int MedicinePillNumber { protected get; set; }
-        public MedicineAgeUse MedicineAgeUse { protected get; set; }
-        [NotMapped]
-        //public virtual List<SymptomsModel>? MedicineSymptomsCure { get; set; } //Some Symptoms of a Symptoms List
-        public MedicineSeverity MedicineSeverity { get; set; }
+        protected int MedicineId;
+        protected string? MedicineName;
+        protected int MedicineMg;
+        protected int MedicinePillNumber;
+        protected MedicineAgeUse MedicineAgeUse;
+        //MedicineSymptomsCure 
+        protected MedicineSeverity MedicineSeverity;
 
-        public MedicineModel (string MedicineName, int MedicineId, int MedicineMg, int MedicinePillNumber, MedicineAgeUse MedicineAgeUse, MedicineSeverity MedicineSeverity)
+        public int medicineId
         {
-            this.MedicineName = MedicineName;
-            this.MedicineId = MedicineId;
-            this.MedicineMg = MedicineMg;
-            this.MedicinePillNumber = MedicinePillNumber;
-            this.MedicineAgeUse = MedicineAgeUse;
-            //this.MedicineSymptomsCure = MedicineSymptomsCure;
-            this.MedicineSeverity = MedicineSeverity;
+            get { return MedicineId; }
+            set { MedicineId = value; }
         }
-        public string GetMedicineName()
+        public string? medicineName
         {
-            return this.MedicineName;
+           get{ return MedicineName; }
+           set{ MedicineName = value; } 
         }
-        public int GetMedicineId()
+        public int medicineMg
         {
-            return this.MedicineId;
+            get { return MedicineMg; }
+            set { MedicineMg = value; }
+            
         }
-        public int GetMedicineMg()
+        public int medicinePillNumber
         {
-            return this.MedicineMg;
+            get { return MedicinePillNumber; }
+            set { MedicinePillNumber = value; }
+           
         }
-        public int GetMedicinePillNumber()
+        public MedicineAgeUse medicineAgeUse
         {
-            return this.MedicinePillNumber;
+            get { return MedicineAgeUse; }
+            set { MedicineAgeUse = value; }
         }
-        public MedicineAgeUse GetMedicineAgeUse()
+     
+        public MedicineSeverity medicineSeverity
         {
-            return this.MedicineAgeUse;
+            get { return MedicineSeverity; }
+            set { MedicineSeverity = value; }
         }
-        //public List<SymptomsModel>? GetMedicineSynptomsCure()
-        //{
-        //    return this.MedicineSymptomsCure;
-        //}
-        public MedicineSeverity GetMedicineSeverity()
-        {
-            return this.MedicineSeverity;
-        }
-        public class ExpressionsPropertySimplify //put in a separate method later
+        public class ExpressionsPropertySimplify 
         {
             public static readonly Expression<Func<MedicineModel, object?>> MedicineId = x => x.MedicineId;
             public static readonly Expression<Func<MedicineModel, string>> MedicineName = x => x.MedicineName;

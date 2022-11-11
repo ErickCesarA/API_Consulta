@@ -21,7 +21,7 @@ namespace API_consulta.Management
 
         public async Task<SymptomsModel> SerchSymptomsId(int symptoms_id)
         {
-            return await _dbContext.Symptoms.FirstOrDefaultAsync(finder => finder.GetSymptomsId() == symptoms_id);
+            return await _dbContext.Symptoms.FirstOrDefaultAsync(finder => finder.symptomsId == symptoms_id);
         }
 
         public async Task<List<SymptomsModel>> GetAllSymptoms()

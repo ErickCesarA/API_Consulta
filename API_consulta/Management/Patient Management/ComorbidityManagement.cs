@@ -21,7 +21,7 @@ namespace API_consulta.Management.Patient_Management
         }
         public async Task<ComorbidityModel> SerchComorbidityId(int comorbidity_id)
         {
-            return await _dbContext.Comorbidity.FirstOrDefaultAsync(finder => finder.GetComorbidityId() == comorbidity_id);
+            return await _dbContext.Comorbidity.FirstOrDefaultAsync(finder => finder.comorbidityId == comorbidity_id);
         }
         public async Task<List<ComorbidityModel>> GetAllComorbidity()
         {

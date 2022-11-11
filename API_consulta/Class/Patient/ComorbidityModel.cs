@@ -7,31 +7,26 @@ namespace API_consulta.Class.Patient
 {
    public class ComorbidityModel
     {
-        public int? ComorbidityId { protected get; set; }
-        public string ComorbidityName { protected get; set; }
-        public string? ComorbidityDescription { protected get; set; }
-        public ComorbidityModel(int? ComorbidityId, string ComorbidityName, string ComorbidityDescription)
+        protected int ComorbidityId;
+        protected string? ComorbidityName;
+        protected string? ComorbidityDescription;
+     
+        public int comorbidityId
         {
-            this.ComorbidityId = ComorbidityId;
-            this.ComorbidityName = ComorbidityName;
-            this.ComorbidityDescription = ComorbidityDescription;
+            get { return ComorbidityId; }
+            set { ComorbidityId = value; }
         }
-        public int? GetComorbidityId()
+        public string? comorbidityName
         {
-            return this.ComorbidityId;
+            get { return ComorbidityName; }
+            set { ComorbidityName = value; }
         }
-        public string GetComorbidityName()
+        public string? comorbidityDescription
         {
-            return this.ComorbidityName;
+            get { return ComorbidityDescription; }
+            set { ComorbidityDescription = value; }
         }
-        public string? GetComorbidityDescription()
-        {
-            return this.ComorbidityDescription;
-        }
-        //public bool Comorbidity { protected get; set; }
-        //[NotMapped]
-        //protected virtual List<ComorbidityModel>? WhichComorbidity { get; set; }
-
+ 
         public class ExpressionsPropertySimplify
         {
             public static readonly Expression<Func<ComorbidityModel, object?>> ComorbidityId = x => x.ComorbidityId;

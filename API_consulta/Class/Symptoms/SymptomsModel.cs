@@ -5,33 +5,30 @@ namespace API_consulta.Class
 {
     public class SymptomsModel
     {
-        public int SymptomsId { protected get;  set; }
-        public string SymptomsName { protected get;  set; }
-        public SymptomsGravity SymptomsGravity { protected get;  set; }
-        public string? SymptomsDescription { protected get;  set; }
+        protected int SymptomsId;
+        protected string? SymptomsName;
+        protected SymptomsGravity SymptomsGravity;
+        protected string? SymptomsDescription;
 
-        public SymptomsModel(int SymptomsId, string SymptomsName, SymptomsGravity SymptomsGravity, string? symptomsDescription)
+        public int symptomsId
         {
-            this.SymptomsId = SymptomsId;
-            this.SymptomsName = SymptomsName;
-            this.SymptomsGravity = SymptomsGravity;
-            this.SymptomsDescription = symptomsDescription;
+            get { return SymptomsId; }
+            set { SymptomsId = value; }
         }
-        public int GetSymptomsId()
+        public string? symptomsName
         {
-            return this.SymptomsId;
+            get { return SymptomsName; }
+            set { SymptomsName = value; }
         }
-        public string GetSymptomsName()
+        public SymptomsGravity symptomsGravity
         {
-            return this.SymptomsName;
+            get { return SymptomsGravity; }
+            set { SymptomsGravity = value; }
         }
-        public SymptomsGravity GetSymptomsGravity()
+        public string? symptomsDescription
         {
-            return this.SymptomsGravity;
-        }
-        public string? GetSymptomsDescription()
-        {
-            return this.SymptomsDescription;
+            get { return SymptomsDescription; }
+            set { SymptomsDescription = value; }
         }
         public class ExpressionsPropertySimplify //put in a separate method later
         {

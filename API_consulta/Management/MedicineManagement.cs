@@ -20,7 +20,7 @@ namespace API_consulta.Management
         }
         public async Task<MedicineModel> SerchMedicineId(int medicine_id)
         {
-            return  await _dbContext.Medicine.FirstOrDefaultAsync(finder => finder.GetMedicineId() == medicine_id);
+            return  await _dbContext.Medicine.FirstOrDefaultAsync(finder => finder.medicineId == medicine_id);
         }
         public async Task<List<MedicineModel>> GetAllMedicine()
         {

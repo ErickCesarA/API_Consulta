@@ -28,10 +28,16 @@ namespace API_consulta.Controllers
             return Ok(patient);
         }
 
+        [HttpGet]
+        public async Task<ActionResult<List<PatientModel>>> GetAllPatient()
+        {
+            List<PatientModel> patients = await _patientManagement.GetAllPatient();
+            return Ok(patients);
+        }
         [HttpPut]
         public async Task<ActionResult<PatientModel>> AttPatient([FromBody] PatientModel patientModel, int patient_id)
         {
-            patientModel.PatientId = patient_id;
+            patientModel.patientId = patient_id;
             PatientModel patient = await _patientManagement.AttPatient(patientModel, patient_id);
             return Ok(patient);
         }

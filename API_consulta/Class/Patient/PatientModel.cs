@@ -6,74 +6,55 @@ namespace API_consulta.Class
 {
     public class PatientModel
     {
-        public int PatientId { protected get; set; }
-        public string? PatientName { protected get; set; }
-        public int PatientAge { protected get; set; }
-        public PatientSex PatientSex { protected get; set; }
-        public bool Pregnant { protected get; set; }
+        protected int PatientId;
+
+        protected string? PatientName;
+
+        protected int PatientAge;
+
+        protected PatientSex PatientSex;
+
+        protected bool Pregnant;
+
+        //Comorbidity 
+        //WhichComorbidity
+        //DrugAllergy 
+        //WhichDrugAllergy
+        public int patientId
+        {
+            get { return PatientId; }
+            set { PatientId = value; }
+        }
+        public string? patientName
+        {
+            get { return PatientName; }
+            set { PatientName = value; }
+        }
+        public int patientAge
+        {
+            get { return PatientAge; }
+            set { PatientAge = value; }
+        }
+        public PatientSex patientSex
+        {
+            get { return PatientSex; }
+            set { PatientSex = value; }
+        }
+        public bool pregnant
+        {
+            get { return Pregnant; }
+            set { Pregnant = value; }
+        }
 
 
-        public PatientModel(int PatientId, string PatientName, int PatientAge, PatientSex PatientSex, bool Pregnant)// bool Comorbidity, bool DrugAllergyList)
-        {
-            this.PatientId = PatientId;
-            this.PatientName = PatientName;
-            this.PatientAge = PatientAge;
-            this.PatientSex = PatientSex;
-            this.Pregnant = Pregnant;
-            //this.Comorbidity = Comorbidity;
-            ////this.WhichComorbidity = WhichComorbidity;
-            ////this.DrugAllergy = DrugAllergy;
-            //this.WhichDrugAllergy = WhichDrugAllergy;
-        }
-        public int GetPatientId()
-        {
-
-           return this.PatientId;
-        }
-        public string? GetPatientName()
-        {
-            return this.PatientName;
-        }
-        public int GetPatientAge()
-        {
-            return this.PatientAge;
-        }
-        public PatientSex GetPatientSex()
-        {
-            return this.PatientSex;
-        }
-        public bool GetPregnat()
-        {
-            return this.Pregnant;
-        }
-        //public bool GetComorbidity()
-        //{
-        //    return this.Comorbidity;
-
-        //}
-        //public List<ComorbidityModel>? GetWhichComobidity()
-        //{
-        //    return this.WhichComorbidity;
-        //}
-        //public bool? GetDrugAllergy()
-        //{
-        //    return this.DrugAllergy;
-        //}
-        //public List<DrugAllergyModel>? GetWhichDrugAllergy()
-        //{
-        //    return this.WhichDrugAllergy;
-        //}
-        public class ExpressionsPropertySimplify //put in a separate method later
+        public class ExpressionsPropertySimplify 
         {
             public static readonly Expression<Func<PatientModel, object?>> PatientId = x => x.PatientId;
             public static readonly Expression<Func<PatientModel, string?>> PatientName = x => x.PatientName;
             public static readonly Expression<Func<PatientModel, int>> PatientAge = x => x.PatientAge;
             public static readonly Expression<Func<PatientModel, PatientSex>> PatientSex = x => x.PatientSex;
             public static readonly Expression<Func<PatientModel, bool>> Pregnant = x => x.Pregnant;
-            //public static readonly Expression<Func<PatientModel, bool>> Comorbidity = x => x.Comorbidity;
-            //public static readonly Expression<Func<PatientModel, bool>> DrugAllergy = x => x.DrugAllergy;
-            //public static readonly Expression<Func<PatientModel, object?>> WhichComorbidity = x => x.WhichComorbidity;
-            //public static readonly Expression<Func<PatientModel, object?>> WhichDrugAllergy = x => x.WhichDrugAllergy;
+           
 
 
         }
