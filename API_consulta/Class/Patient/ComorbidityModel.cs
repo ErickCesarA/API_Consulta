@@ -30,7 +30,7 @@ namespace API_consulta.Class.Patient
         public class ExpressionsPropertySimplify
         {
             public static readonly Expression<Func<ComorbidityModel, object?>> ComorbidityId = x => x.ComorbidityId;
-            public static readonly Expression<Func<ComorbidityModel, string>> ComorbidityName = x => x.ComorbidityName;
+            public static readonly Expression<Func<ComorbidityModel, string?>> ComorbidityName = x => x.ComorbidityName;
             public static readonly Expression<Func<ComorbidityModel, string?>> ComorbidityDescription = x => x.ComorbidityDescription;
         }
     }

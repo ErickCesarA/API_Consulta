@@ -17,17 +17,14 @@ namespace API_consulta.Data_Base.Config
 
             builder.Property(PatientModel.ExpressionsPropertySimplify.PatientAge).IsRequired();
 
-            builder.Property(PatientModel.ExpressionsPropertySimplify.PatientSex);
+            builder.Property(PatientModel.ExpressionsPropertySimplify.PatientSex).IsRequired();
 
-            builder.Property(PatientModel.ExpressionsPropertySimplify.Pregnant).IsRequired();
+            builder.Property(PatientModel.ExpressionsPropertySimplify.Pregnant);
 
-            //builder.Property(PatientModel.ExpressionsPropertySimplify.Comorbidity).IsRequired();
+            builder.Property(PatientModel.ExpressionsPropertySimplify.Comorbidity).IsRequired();
 
-            //builder.Property(PatientModel.ExpressionsPropertySimplify.DrugAllergy).IsRequired();
+            builder.Property(PatientModel.ExpressionsPropertySimplify.DrugAllergy).IsRequired();
 
-            //builder.Property(PatientModel.ExpressionsPropertySimplify.WhichComorbidity);
-
-            //builder.Property(PatientModel.ExpressionsPropertySimplify.WhichDrugAllergy);
 
         }
       

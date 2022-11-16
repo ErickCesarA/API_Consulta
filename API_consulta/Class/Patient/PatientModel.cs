@@ -1,4 +1,5 @@
-﻿using API_consulta.Enums;
+﻿using API_consulta.Class.Patient;
+using API_consulta.Enums;
 using System.Linq.Expressions;
 
 namespace API_consulta.Class
@@ -16,9 +17,11 @@ namespace API_consulta.Class
 
         protected bool Pregnant;
 
-        //Comorbidity 
+        protected bool Comorbidity;
+        //ComorbidityModel
         //WhichComorbidity
-        //DrugAllergy 
+        protected bool DrugAllergy;
+        //DrugAllergy
         //WhichDrugAllergy
         public int patientId
         {
@@ -45,6 +48,16 @@ namespace API_consulta.Class
             get { return Pregnant; }
             set { Pregnant = value; }
         }
+        public bool comorbidity
+        {
+            get { return Comorbidity; }
+            set { Comorbidity = value; }
+        }
+        public bool drugAllergy
+        {
+            get { return DrugAllergy; }
+            set { DrugAllergy = value; }
+        }
 
 
         public class ExpressionsPropertySimplify 
@@ -54,9 +67,8 @@ namespace API_consulta.Class
             public static readonly Expression<Func<PatientModel, int>> PatientAge = x => x.PatientAge;
             public static readonly Expression<Func<PatientModel, PatientSex>> PatientSex = x => x.PatientSex;
             public static readonly Expression<Func<PatientModel, bool>> Pregnant = x => x.Pregnant;
-           
-
-
+            public static readonly Expression<Func<PatientModel, bool>> Comorbidity = x => x.Comorbidity;
+            public static readonly Expression<Func<PatientModel, bool>> DrugAllergy = x => x.DrugAllergy;
         }
 
     }

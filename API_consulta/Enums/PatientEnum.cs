@@ -4,9 +4,9 @@ namespace API_consulta.Enums
 {
     public enum PatientSex
     { 
-        [Description("Male")]
+        //[Description("Male")]
         MalePatient = 1,
-        [Description("Female")]
+        //[Description("Female")]
         FemalePatient = 2,
 
     }

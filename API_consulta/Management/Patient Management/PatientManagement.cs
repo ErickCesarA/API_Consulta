@@ -38,6 +38,8 @@ namespace API_consulta.Management.Patient_Management
             _ = FoundPatient.patientAge == Patient.patientAge;
             _ = FoundPatient.patientSex == Patient.patientSex;
             _ = FoundPatient.pregnant == Patient.pregnant;
+            _ = FoundPatient.comorbidity == Patient.comorbidity;
+            _ = FoundPatient.comorbidity == Patient.drugAllergy;
         
             _dbContext.Patient.Update(FoundPatient);
             await _dbContext.SaveChangesAsync();
